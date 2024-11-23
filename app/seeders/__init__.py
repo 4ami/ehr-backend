@@ -1,0 +1,1 @@
+from .user_seed import seed_users
