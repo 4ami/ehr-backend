@@ -1,6 +1,6 @@
 import bcrypt
-from ..models import User
-from ..config import session
+from app.models import User
+from app.config import session
 def seed_users():
     print('User seeder running ...')
     hashed_password = bcrypt.hashpw('ph@JD1234'.encode('utf-8'), bcrypt.gensalt())
