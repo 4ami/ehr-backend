@@ -16,6 +16,11 @@ def seed_patients():
         )
     ]
 
-    session.add_all(patients)
-    session.commit()
+    try:
+        session.add_all(patients)
+        session.commit()
+    except Exception:
+        session.rollback()
+        print('Patirnt seeder fail ...')
+        return
     print('Patient seeder success ...')

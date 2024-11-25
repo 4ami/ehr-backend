@@ -17,3 +17,24 @@ class NewPatientResponse(BaseModel):
     gender: str = Field(..., title= "gender", description = 'patient gender')
     visit: date = Field(..., title='visit', description='patient visit date')
     message: str = Field(..., title='message', description='Patient successfully created')
+
+    def __dictionary__(self):
+        return {
+            'patient_name': self.patient_name,
+            'phone_number': self.phone_number,
+            'address': self.address,
+            'gender': self.gender,
+            'visit': self.visit.isoformat(),
+            'message': self.message
+        } 
+
+class UpdatedPateintResponse(BaseModel):
+    patient_name_old: str = Field(..., title='patient name', description='patient name')
+    phone_number_old: str = Field(..., title='phone number', description='patient phone number')
+    address_old: str = Field(..., title='address', description='patient address')
+    gender_old: str = Field(..., title= "gender", description = 'patient gender')
+
+    patient_name_new: str = Field(..., title='patient name', description='patient name')
+    phone_number_new: str = Field(..., title='phone number', description='patient phone number')
+    address_new: str = Field(..., title='address', description='patient address')
+    gender_new: str = Field(..., title= "gender", description = 'patient gender')

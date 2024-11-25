@@ -11,3 +11,11 @@ class LoginRequest(BaseModel):
         if re.search(sp, userId):
             raise ValueError('userId can\'t contain special characters')
         return userId
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "userId": "user1234",
+                "password": "Hashed Password",
+            }
+        }

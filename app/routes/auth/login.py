@@ -10,6 +10,7 @@ authRouter = APIRouter()
         '/login', 
         summary='User Login', 
         description='This endpoint takes userId and password as request (LoginRequest), and then returns JWT token (LoginResponse) for successfull Authentication',
+        response_model=LoginResponse
         )
 async def login(request: LoginRequest)-> LoginResponse:
     '''

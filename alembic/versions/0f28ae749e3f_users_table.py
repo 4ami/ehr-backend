@@ -21,8 +21,8 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.create_table(
         'user',
-        sa.Column('_id', sa.Integer(), nullable=False, autoincrement=True),
-        sa.Column('userId', sa.String(35), nullable=False),
+        sa.Column('_id', sa.Integer(), primary_key=True, autoincrement=True),
+        sa.Column('userId', sa.String(35), nullable=False, unique=True),
         sa.Column('full_name', sa.String(70), nullable=False),
         sa.Column('role', sa.Enum('RECEPTIONIST', 'PHARMACIST', 'CASHIER'), nullable=False),
         sa.Column('password', sa.String(257), nullable=False)
